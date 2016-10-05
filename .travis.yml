@@ -1,5 +1,13 @@
-
 language: java
-
 jdk:
-  - oraclejdk8
+- oraclejdk8
+deploy:
+  provider: cloudfoundry
+  api: https://api.run.pivotal.io
+  username: vishalganwani
+  password:
+    secure: qWZ9qqFhud9e0fI5j+3M/MExJ+cbVWKqG9epqKbQzOBoiV2/3STevJDIou9cTKyW/w/4ZzG6+KNSewEmCsWd8ISF6GjAvHVsQcFUXIjq6OVBK5cZAULXs5QzvY6jh/ChcpdDpv4EnI/TkIoaSjLGC4ISGHDrId4JOOaN2aPzQ54IUHmvQSc89k5bBjxy89gDx2sHGFVbCDu1nGNwuNbQmBQNMUFsBjIQibK1ibw29jl1xLCemUjZCGI/HniQNZZGJUGIvajQlkBvJsy1AFlhyIIsMwRAB55qkLT9K1u2DERT1FN8aBgN2z9FmZGLI5pDBzeQ1zt+bCs98UdNEjK0fmNyMvmlT5jhKUhkzwn/hNdUE0Wvzfh50Nvce/JPTxmcOi4DSdjzjnLVXcZ/dStLt4/Mv0VTkvaSvQzakbIwNI8Q2g4fgRg8oQFn3jnb0sQa7HTIX54VegahV3B14Uuhs6EfRWjQipTfMl4aGxutUZRS5yrNv4RNgyMAAxhvzZlYDuTVtwDCdia/iWKXSkxnxHoYcsMLOkYgxYklQ4bOnDzBUX0CDQlV/dUNxM1VXBOg+CAxiXd+xq+C6s9J7lVPLP28zBgUTtpKsqEsRMzfHeRFfi2EixrhGs+2gDYNx7u6kEF6dbjG9/wnhJ29mKFYfbOq/LoCbuqSLN0qqj7Ni3s=
+  organization: CMU
+  space: development
+  on:
+    repo: vishalganwani/Image-Gallery-Application
