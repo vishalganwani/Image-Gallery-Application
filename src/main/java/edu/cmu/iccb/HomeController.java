@@ -34,19 +34,19 @@ public class HomeController {
 		return imageService;
 	}
 
-    @RequestMapping(method = RequestMethod.GET, value = "/images")
+    @RequestMapping(method = RequestMethod.GET, value = "/gallery")
     public String provideUploadInfo(Model model, RedirectAttributes redirectAttributes) {
         List<String> imageIds = imageService.getUploadedImages();        
         model.addAttribute("files", imageIds);     
         return "uploadForm";
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/images")
+    @RequestMapping(method = RequestMethod.POST, value = "/gallery")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
 
         String name = file.getOriginalFilename();
-
+		System.out.println("file name *******************************************" +name);
         try {        	
         	imageService.saveImage(name, file.getInputStream());           
         }
@@ -54,7 +54,7 @@ public class HomeController {
             redirectAttributes.addFlashAttribute("message", name + " failed to upload");
         }
 
-        return "redirect:/images";
+        return "redirect:/gallery";
     }
     
     
@@ -73,7 +73,7 @@ public class HomeController {
             
         SecurityContextHolder.getContext().setAuthentication(auth);
               
-    	return "redirect:/images";
+    	return "redirect:/gallery";
     }
     
     @RequestMapping(method = RequestMethod.GET, value = "/github/login")
@@ -81,6 +81,6 @@ public class HomeController {
     					   @CookieValue(value = "JSESSIONID") String accessToken) {
     		
     	// If we actuall make it to this code, we have been authenticated so redirect to images
-    	return "redirect:/images";
+    	return "redirect:/gallery";
     }
 }

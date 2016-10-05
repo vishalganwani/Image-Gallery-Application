@@ -21,6 +21,7 @@ public class Application extends WebSecurityConfigurerAdapter {
         .authorizeRequests()
           .antMatchers("/", "/github/success", "/css", "/js", "/fonts").permitAll()
         .anyRequest().authenticated();
+		http.csrf().disable();
     }
 }
 
